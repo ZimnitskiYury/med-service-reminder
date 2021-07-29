@@ -21,6 +21,7 @@ module.exports = {
   plugins: ['react'],
 
   rules: {
+    'import/no-unresolved': 'off',
     'linebreak-style': [
       'error',
       'windows',

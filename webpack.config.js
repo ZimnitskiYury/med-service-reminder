@@ -29,6 +29,7 @@ module.exports = (
       port: 3000,
       watchContentBase: true,
     },
+    devtool: 'eval-source-map',
     module: {
       rules: [
         {
@@ -58,6 +59,7 @@ module.exports = (
     plugins: [
       new HtmlWebpackPlugin({ template: './src/index.html' }),
       new StylelintPlugin(),
+      new MiniCssExtractPlugin(),
     ],
   };
 };
