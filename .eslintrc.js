@@ -1,5 +1,4 @@
 module.exports = {
-
   env: {
     browser: true,
     es2021: true,
@@ -59,5 +58,22 @@ module.exports = {
       { minItems: 2 },
     ],
     'import/exports-last': 'warn',
+    'padding-line-between-statements': [
+      'warn',
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'return',
+      },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'if',
+      },
+    ],
+    'newline-per-chained-call': [
+      'error',
+      { ignoreChainWithDepth: 2 },
+    ],
   },
 };

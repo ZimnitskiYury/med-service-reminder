@@ -10,7 +10,7 @@ function MainPageLayout() {
 }
 
 function MainPage() {
-  return (<MainPageLayout />);
+  return <MainPageLayout />;
 }
 
 export default MainPage;
