@@ -76,5 +76,6 @@ module.exports = {
       'error',
       { ignoreChainWithDepth: 2 },
     ],
+    'react/no-array-index-key': 'off',
   },
 };

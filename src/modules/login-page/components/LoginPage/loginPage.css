@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 330px;
+  width: 400px;
   height: 340px;
   overflow: hidden;
 
@@ -46,6 +46,7 @@
   padding: 25px 15px;
 
   font-size: 20px;
+  color: #275973;
 }
 
 .login-page__input-container {
@@ -65,7 +66,7 @@
   text-align: right;
   color: #ffffff;
 
-  background-color: #4f9afe;
+  background-color: #ffd73f;
   border-radius: 6px 0 0 6px;
 }
 .login-page__input {
@@ -73,7 +74,7 @@
   max-width: 70%;
   padding: 8px 4px;
 
-  border: 1px solid #4f9afe;
+  border: 1px solid #ffd73f;
   border-left: none;
   border-radius: 0 6px 6px 0;
   outline: none;
@@ -87,8 +88,11 @@
   font-size: 22px;
   color: #ffffff;
 
-  background-color: #4f9afe;
+  background-color: #ffd73f;
   border: none;
   border-radius: 6px;
   outline: none;
+}
+.login-page__button_disabled {
+  background-color: #e4e5e5;
 }

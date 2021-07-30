@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import * as React from 'react';
 import classNames from 'classnames';
-import './loginPage.css';
 import useInput from 'common/hooks/inputHook';
+
+import './loginPage.css';
 
 
 function Login() {
-  const { value: login, onChange: onChangeLogin } = useInput();
-  const { value: password, onChange: onChangePassword } = useInput();
+  const { value: login, onChange: onChangeLogin } = useInput('');
+  const { value: password, onChange: onChangePassword } = useInput('');
   const label = 'login';
 
   return (
@@ -29,7 +30,15 @@ function Login() {
           </label>
           <input id="password" className={classNames('login-page__input')} value={password} onChange={onChangePassword} />
         </div>
-        <button type="submit" className={classNames('login-page__button')}>Войти</button>
+        <button
+          type="submit"
+          className={classNames(
+            'login-page__button',
+            { 'login-page__button_disabled': true },
+          )}
+        >
+          Войти
+        </button>
       </div>
     </section>
   );

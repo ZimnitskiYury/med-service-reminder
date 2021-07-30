@@ -1,3 +1,104 @@
 .patients {
   display: flex;
+  flex-direction: column;
+  padding: 10px 40px;
+
+  font-family: "Comfortaa", cursive;
+}
+.patients__last-added {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+
+  border: 1px solid #ffd73f;
+  border-bottom: none;
+  border-radius: 5px;
+}
+.patients__last-added-title {
+  padding: 5px 20px;
+
+  font-size: 24px;
+  color: #275973;
+}
+.patients__last-added-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 8px 0;
+
+  font-size: 14px;
+  text-align: center;
+  color: #ffffff;
+
+  background-color: #ffd73f;
+}
+.patients__last-added-credentials {
+  width: 25%;
+
+  border-right: 2px solid #ffffff;
+}
+.patients__last-added-age {
+  width: 9%;
+
+  border-right: 2px solid #ffffff;
+}
+.patients__last-added-birthdate {
+  width: 11%;
+
+  border-right: 2px solid #ffffff;
+}
+.patients__last-added-diagnosis {
+  width: 25%;
+
+  border-right: 2px solid #ffffff;
+}
+.patients__last-added-phone {
+  width: 18%;
+
+  border-right: 2px solid #ffffff;
+}
+.patients__last-added-visit {
+  width: 12%;
+}
+.last-added__patient {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 8px 0;
+
+  font-size: 16px;
+  text-align: center;
+  color: #275973;
+
+  background-color: #ffffff;
+  border-bottom: 1px solid #ffd73f;
+}
+.last-added__patient-credentials {
+  width: 25%;
+
+  border-right: 2px solid #ffd73f;
+}
+.last-added__patient-age {
+  width: 9%;
+
+  border-right: 2px solid #ffd73f;
+}
+.last-added__patient-birthdate {
+  width: 11%;
+
+  border-right: 2px solid #ffd73f;
+}
+.last-added__patient-diagnosis {
+  width: 25%;
+
+  border-right: 2px solid #ffd73f;
+}
+.last-added__patient-phone {
+  width: 18%;
+
+  border-right: 2px solid #ffd73f;
+}
+.last-added__patient-visit {
+  width: 12%;
 }
