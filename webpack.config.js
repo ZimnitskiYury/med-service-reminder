@@ -24,10 +24,12 @@ module.exports = (
         '/dist',
       ),
       filename: 'index.bundle.js',
+      publicPath: '/',
     },
     devServer: {
       port: 3000,
       watchContentBase: true,
+      historyApiFallback: true,
     },
     devtool: 'eval-source-map',
     module: {
@@ -44,6 +46,18 @@ module.exports = (
           use: {
             loader: 'babel-loader',
           },
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: '@svgr/webpack',
+              options: {
+                titleProp: true,
+              },
+            },
+            'file-loader',
+          ],
         },
         {
           test: /\.css$/,

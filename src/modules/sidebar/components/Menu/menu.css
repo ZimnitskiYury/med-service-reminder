@@ -1,0 +1,43 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-transform: uppercase;
+
+  row-gap: 10px;
+}
+.menu__link {
+  width: 90%;
+  padding: 12px 0;
+
+  font-size: 20px;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.menu__link:hover {
+  padding: 12px 0;
+
+  background-color: #275973;
+  border-radius: 15px;
+}
+.menu__link_active {
+  padding: 12px 0;
+
+  color: #4f99fe;
+
+  background-color: white;
+  border-radius: 15px;
+}
+.menu__link_active:hover {
+  padding: 12px 0;
+
+  color: #4f99fe;
+
+  background-color: white;
+  border-radius: 15px;
+}
