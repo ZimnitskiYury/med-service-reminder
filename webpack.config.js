@@ -5,12 +5,12 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 
 
 module.exports = (
-  env, argv,
+  environment, argv,
 ) => {
-  let isDev = false;
+  let isDevelopment = false;
 
   if (argv.mode === 'development') {
-    isDev = true;
+    isDevelopment = true;
   }
 
   return {
@@ -62,7 +62,7 @@ module.exports = (
         {
           test: /\.css$/,
           use: [
-            isDev
+            isDevelopment
               ? 'style-loader'
               : MiniCssExtractPlugin.loader,
             'css-loader',
