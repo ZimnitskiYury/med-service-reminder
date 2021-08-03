@@ -1,0 +1,26 @@
+.menu-patients {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 40px;
+  margin-left: auto;
+  padding: 0 3px;
+}
+.menu-patients__button {
+  box-sizing: border-box;
+  height: 34px;
+  padding: 0 20px;
+
+  font-family: "Comfortaa", cursive;
+  color: white;
+  text-transform: uppercase;
+
+  background-color: #ffd73f;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+}
+.menu-patients__button:hover {
+  color: #e3582d;
+}
+

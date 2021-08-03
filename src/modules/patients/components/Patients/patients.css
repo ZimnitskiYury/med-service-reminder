@@ -4,8 +4,10 @@
   padding: 10px 40px;
 
   font-family: "Comfortaa", cursive;
+
+  row-gap: 80px;
 }
-.patients__last-added {
+.patients__table {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -15,13 +17,13 @@
   border-bottom: none;
   border-radius: 5px;
 }
-.patients__last-added-title {
+.patients__table-title {
   padding: 5px 20px;
 
   font-size: 24px;
   color: #275973;
 }
-.patients__last-added-header {
+.patients__table-header {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -33,35 +35,35 @@
 
   background-color: #ffd73f;
 }
-.patients__last-added-credentials {
+.patients__table-credentials {
   width: 25%;
 
   border-right: 2px solid #ffffff;
 }
-.patients__last-added-age {
+.patients__table-age {
   width: 9%;
 
   border-right: 2px solid #ffffff;
 }
-.patients__last-added-birthdate {
+.patients__table-birthdate {
   width: 11%;
 
   border-right: 2px solid #ffffff;
 }
-.patients__last-added-diagnosis {
+.patients__table-diagnosis {
   width: 25%;
 
   border-right: 2px solid #ffffff;
 }
-.patients__last-added-phone {
+.patients__table-phone {
   width: 18%;
 
   border-right: 2px solid #ffffff;
 }
-.patients__last-added-visit {
+.patients__table-visit {
   width: 12%;
 }
-.last-added__patient {
+.patient {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -74,31 +76,36 @@
   background-color: #ffffff;
   border-bottom: 1px solid #ffd73f;
 }
-.last-added__patient-credentials {
+.patient__credentials {
   width: 25%;
+  padding: 0 5px;
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   border-right: 2px solid #ffd73f;
 }
-.last-added__patient-age {
+.patient__age {
   width: 9%;
 
   border-right: 2px solid #ffd73f;
 }
-.last-added__patient-birthdate {
+.patient__birthdate {
   width: 11%;
 
   border-right: 2px solid #ffd73f;
 }
-.last-added__patient-diagnosis {
+.patient__diagnosis {
   width: 25%;
 
   border-right: 2px solid #ffd73f;
 }
-.last-added__patient-phone {
+.patient__phone {
   width: 18%;
 
   border-right: 2px solid #ffd73f;
 }
-.last-added__patient-visit {
+.patient__visit {
   width: 12%;
 }

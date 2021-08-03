@@ -39,6 +39,7 @@ function CalendarMode() {
     </div>
   );
 }
+
 function SpecializationMode() {
   return (
     <div className={classNames('header__specialization')}>
@@ -72,6 +73,7 @@ function SpecializationMode() {
     </div>
   );
 }
+
 function Search() {
   const { value, onChange } = useInput('');
 

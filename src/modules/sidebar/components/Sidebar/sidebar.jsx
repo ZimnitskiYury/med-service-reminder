@@ -15,6 +15,7 @@ function Logo() {
     </div>
   );
 }
+
 function Sidebar() {
   return (
     <section className={classNames('sidebar')}>

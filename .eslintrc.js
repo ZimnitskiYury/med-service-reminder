@@ -1,3 +1,4 @@
+// eslint-disable-next-line unicorn/prefer-module
 module.exports = {
   env: {
     browser: true,
@@ -7,6 +8,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:unicorn/recommended',
     'airbnb',
   ],
 
@@ -72,11 +74,22 @@ module.exports = {
         prev: '*',
         next: 'if',
       },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'function',
+      },
     ],
     'newline-per-chained-call': [
       'error',
       { ignoreChainWithDepth: 2 },
     ],
     'react/no-array-index-key': 'off',
+    'unicorn/filename-case': [
+      'error',
+      {
+        case: 'camelCase',
+      },
+    ],
   },
 };
