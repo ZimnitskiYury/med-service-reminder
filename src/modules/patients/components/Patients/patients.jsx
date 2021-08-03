@@ -1,10 +1,9 @@
-import * as React from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
-
 import classNames from 'classnames';
+import AddPatientDialog from 'modules/patients/components/PatientForm/addPatientDialog';
 
 import './patients.css';
-import MenuPatients from 'modules/patients/components/MenuPatients/menuPatients';
 
 
 const patientTemporary = [
@@ -88,10 +87,23 @@ function Patient({ patient }) {
 }
 
 function Patients() {
+  const [
+    isOpen,
+    toggleModal,
+  ] = useReducer(
+    (state) => !state,
+    false,
+  );
+
   return (
     <section className={classNames('patients')}>
       <PatientsTable name="Последние добавленные" id="last-added" />
-      <MenuPatients />
+      <menu className={classNames('patients__menu')}>
+        <button className={classNames('patients__menu-button')} type="button" onClick={toggleModal}>Добавить пациента</button>
+        <button className={classNames('patients__menu-button')} type="button" onClick={toggleModal}>Редактировать</button>
+        <button className={classNames('patients__menu-button')} type="button" onClick={toggleModal}>Удалить</button>
+      </menu>
+      <AddPatientDialog isOpen={isOpen} toggleModal={toggleModal} />
       <PatientsTable name="Последние посещения" id="last-visited" />
     </section>
   );

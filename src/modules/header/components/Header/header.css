@@ -31,6 +31,8 @@
 }
 .header__search::placeholder {
   color: #275973;
+
+  opacity: 0.4;
 }
 .header__specialization {
   display: flex;
