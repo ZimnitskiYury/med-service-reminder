@@ -8,6 +8,15 @@
 
   border-bottom: 2px solid #ffd73f;
 }
+.patient-dialog__title {
+  font-size: 22px;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+}
+.patient-dialog__footer {
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+}
 .patient-dialog__form {
   display: flex;
   flex-direction: column;
@@ -37,9 +46,8 @@
 }
 
 .patient-dialog__button {
-  align-self: center;
   box-sizing: border-box;
-  width: 180px;
+  width: 260px;
   height: 34px;
   padding: 0 20px;
 

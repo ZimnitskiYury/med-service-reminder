@@ -1,6 +1,8 @@
 import React, { useReducer } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import AddPatientDialog from 'modules/patients/components/PatientForm/addPatientDialog';
 
 import './patients.css';
@@ -65,8 +67,11 @@ function PatientsTable({ id, name }) {
         {
         patientTemporary.map((
           patient, index,
-        ) => <Patient key={index} patient={patient} />)
-
+        ) => (
+          <Link className={classNames('patient__link')} type="button" to="/patients/1">
+            <Patient key={index} patient={patient} />
+          </Link>
+        ))
         }
       </ul>
     </div>

@@ -34,7 +34,7 @@
 
   opacity: 0.4;
 }
-.header__specialization {
+.header__mode {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -42,10 +42,12 @@
   margin-left: auto;
   padding: 0 3px;
 
+  column-gap: 8px;
+
   background-color: #e4e5e5;
   border-radius: 12px;
 }
-.header__specialization-button {
+.header__mode-button {
   box-sizing: border-box;
   height: 34px;
   padding: 0 20px;
@@ -56,47 +58,24 @@
 
   background-color: transparent;
   border: none;
+  border-radius: 12px;
   outline: none;
 }
-.header__specialization-button:hover {
-  color: #e3582d;
+.header__mode-button:hover {
+  color: #ffffff;
+
+  background-color: #e3582d;
+
+  transition: all 0.4s ease-in-out;
 }
-.header__specialization-button_active {
+.header__mode-button_active {
   color: white;
 
   background-color: #ffd73f;
-  border-radius: 12px;
 }
-.header__calendar-mode {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  height: 40px;
-  margin-left: auto;
-  padding: 0 3px;
 
-  background-color: #e4e5e5;
-  border-radius: 12px;
-}
-.header__calendar-button {
-  box-sizing: border-box;
-  height: 34px;
-  padding: 0 20px;
-
-  font-family: "Comfortaa", cursive;
-  color: #275973;
-  text-transform: uppercase;
-
-  background-color: transparent;
-  border: none;
-  outline: none;
-}
-.header__calendar-button_active {
+.header__mode-button_active:hover {
   color: white;
 
   background-color: #ffd73f;
-  border-radius: 12px;
-}
-.header__calendar-button:hover {
-  color: #e3582d;
 }

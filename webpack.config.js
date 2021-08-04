@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
@@ -60,12 +61,20 @@ module.exports = (
           ],
         },
         {
-          test: /\.css$/,
+          test: /\.(less|css)$/,
           use: [
             isDevelopment
               ? 'style-loader'
               : MiniCssExtractPlugin.loader,
             'css-loader',
+            {
+              loader: 'less-loader',
+              options: {
+                lessOptions: {
+                  javascriptEnabled: true,
+                },
+              },
+            },
           ],
         },
       ],
@@ -73,6 +82,10 @@ module.exports = (
     plugins: [
       new HtmlWebpackPlugin({ template: './src/index.html' }),
       new StylelintPlugin(),
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: 'development',
+        RUN_ENV: 'development',
+      }),
       new MiniCssExtractPlugin(),
     ],
   };

@@ -72,14 +72,12 @@
 
   font-size: 16px;
   text-align: center;
-  color: #275973;
 
-  background-color: #ffffff;
   border-bottom: 1px solid #ffd73f;
 }
 .patient__credentials {
   width: 25%;
-  padding: 0 5px;
+  padding: 5px;
   overflow: hidden;
 
   white-space: nowrap;
@@ -89,26 +87,31 @@
 }
 .patient__age {
   width: 9%;
+  padding: 5px;
 
   border-right: 2px solid #ffd73f;
 }
 .patient__birthdate {
   width: 11%;
+  padding: 5px;
 
   border-right: 2px solid #ffd73f;
 }
 .patient__diagnosis {
   width: 25%;
+  padding: 5px;
 
   border-right: 2px solid #ffd73f;
 }
 .patient__phone {
   width: 18%;
+  padding: 5px;
 
   border-right: 2px solid #ffd73f;
 }
 .patient__visit {
   width: 12%;
+  padding: 5px;
 }
 .patients__menu {
   display: flex;
@@ -136,6 +139,19 @@
   outline: none;
 }
 .patients__menu-button:hover {
+  color: #ffffff;
+
+  background-color: #e3582d;
+
+  transition: all 0.3s ease-in-out;
+}
+.patient__link {
+  color: #275973;
+  text-decoration: none;
+
+  background-color: #ffffff;
+}
+.patient__link:hover {
   color: #ffffff;
 
   background-color: #e3582d;

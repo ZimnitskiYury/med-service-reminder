@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
 import useInput from 'common/hooks/inputHook';
@@ -6,70 +7,29 @@ import useInput from 'common/hooks/inputHook';
 import './header.css';
 
 
-function CalendarMode() {
-  return (
-    <div className={classNames('header__calendar-mode')}>
-      <button
-        type="button"
-        className={classNames(
-          'header__calendar-button',
-          { 'header__calendar-button_active': true },
-        )}
-      >
-        Дни
-      </button>
-      <button
-        type="button"
-        className={classNames(
-          'header__calendar-button',
-          { 'header__calendar-button_active': false },
-        )}
-      >
-        Месяцы
-      </button>
-      <button
-        type="button"
-        className={classNames(
-          'header__calendar-button',
-          { 'header__calendar-button_active': false },
-        )}
-      >
-        Годы
-      </button>
-    </div>
-  );
-}
+function HeaderMode({ array, startIndex = 0 }) {
+  if (array.length === 0) {
+    return (<div className={classNames('header__mode')}>In construction</div>);
+  }
 
-function SpecializationMode() {
   return (
-    <div className={classNames('header__specialization')}>
-      <button
-        type="button"
-        className={classNames(
-          'header__specialization-button',
-          { 'header__specialization-button_active': true },
-        )}
-      >
-        Общая
-      </button>
-      <button
-        type="button"
-        className={classNames(
-          'header__specialization-button',
-          { 'header__specialization-button_active': false },
-        )}
-      >
-        Наркология
-      </button>
-      <button
-        type="button"
-        className={classNames(
-          'header__specialization-button',
-          { 'header__specialization-button_active': false },
-        )}
-      >
-        Психиатрия
-      </button>
+    <div className={classNames('header__mode')}>
+      {
+        array.map((
+          array_, index,
+        ) => (
+          <button
+            type="button"
+            className={classNames(
+              'header__mode-button',
+              { 'header__mode-button_active': index === startIndex },
+            )}
+          >
+            {array_}
+          </button>
+        ))
+      }
+
     </div>
   );
 }
@@ -92,10 +52,42 @@ function Header() {
   useEffect(
     () => {
       switch (location.pathname) {
-        case '/dashboard':
-        case '/patients': { setComponent(<SpecializationMode />); break; }
-        case '/calendar': { setComponent(<CalendarMode />); break; }
-        default: { setComponent(<div>In construction</div>); break; }
+        case '/dashboard': { setComponent(<HeaderMode
+          array={[
+            'Общая',
+            'Психиатрия',
+            'Наркология',
+          ]}
+          startIndex={0}
+        />); break; }
+        case (location.pathname.match(/^\/patients\/\d/) || {}).input: { setComponent(<HeaderMode
+          array={[
+            'Просмотр',
+            'Редактирование',
+            'Удаление',
+          ]}
+          startIndex={1}
+        />); break; }
+        case '/patients': { setComponent(<HeaderMode
+          array={[
+            'Общая',
+            'Психиатрия',
+            'Наркология',
+          ]}
+          startIndex={0}
+        />); break; }
+        case '/calendar': { setComponent(<HeaderMode
+          array={[
+            'Дни',
+            'Месяцы',
+            'Годы',
+          ]}
+          startIndex={0}
+        />); break; }
+        default: { setComponent(<HeaderMode
+          array={[]}
+          startIndex={0}
+        />); break; }
       }
     },
     [location.pathname],
@@ -108,5 +100,10 @@ function Header() {
     </header>
   );
 }
+
+HeaderMode.propTypes = {
+  array: PropTypes.arrayOf(PropTypes.string).isRequired,
+  startIndex: PropTypes.number.isRequired,
+};
 
 export default Header;

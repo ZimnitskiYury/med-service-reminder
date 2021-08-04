@@ -18,6 +18,8 @@
   color: white;
   text-transform: uppercase;
   text-decoration: none;
+
+  border-radius: 15px;
 }
 .menu__link:hover {
   padding: 12px 0;

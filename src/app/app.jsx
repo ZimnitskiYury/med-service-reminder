@@ -11,7 +11,9 @@ import Patients from 'modules/patients/components/Patients/patients';
 import Calendar from 'modules/calendar/components/Calendar/calendar';
 import Report from 'modules/report/components/Report/report';
 import Narcology from 'modules/narcology/components/Narcology/narcology';
+import PatientPage from 'modules/patient-page/components/PatientPage/patientPage';
 
+import 'rsuite/lib/styles/themes/default/index.less';
 import './app.css';
 import 'styles/reset.css';
 
@@ -25,11 +27,16 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/patients" component={Patients} />
           <Route path="/calendar" component={Calendar} />
           <Route path="/report" component={Report} />
           <Route path="/narcology" component={Narcology} />
           <Route path="/psichiatry" component={Narcology} />
+
+          <Switch>
+            <Route path="/patients/:id" component={PatientPage} />
+            <Route path="/patients" component={Patients} />
+          </Switch>
+
         </Switch>
       </main>
     </BrowserRouter>
