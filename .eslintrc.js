@@ -92,5 +92,6 @@ module.exports = {
       },
     ],
     'unicorn/prefer-module': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
   },
 };

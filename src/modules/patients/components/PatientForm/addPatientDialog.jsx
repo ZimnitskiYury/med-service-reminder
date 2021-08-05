@@ -3,18 +3,36 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { useFormik } from 'Formik';
-import { Modal, InputPicker } from 'rsuite';
+import {
+  Modal, InputPicker, DatePicker, Input,
+} from 'rsuite';
 
 import './addPatientDialog.css';
 
 
+const locale = {
+  sunday: 'Вс',
+  monday: 'Пн',
+  tuesday: 'Вт',
+  wednesday: 'Ср',
+  thursday: 'Чт',
+  friday: 'Пт',
+  saturday: 'Сб',
+  ok: 'OK',
+  today: 'Сегодня',
+  yesterday: 'Вчера',
+  hours: 'Часы',
+  minutes: 'Минуты',
+  seconds: 'Секунды',
+};
+
 function AddPatientDialog({ isOpen, toggleModal }) {
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
-      surName: '',
-      birthdate: new Date().toLocaleDateString('ru'),
+      firstname: '',
+      lastname: '',
+      surname: '',
+      birthdate: '',
       identification: '',
       sex: 'Мужской',
     },
@@ -29,54 +47,66 @@ function AddPatientDialog({ isOpen, toggleModal }) {
       <Modal.Body>
         <form id="add-patient-form" className={classNames('patient-dialog__form')} onSubmit={formik.handleSubmit}>
 
-          <input
-            className={classNames('patient-dialog__input')}
-            id="firstName"
-            name="firstName"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.firstName}
+          <Input
+            classPrefix={classNames('patient-dialog__input')}
+            id="firstname"
+            name="firstname"
+            onChange={(value) => formik.setFieldValue(
+              'firstname',
+              value,
+            )}
+            value={formik.values.firstname}
             placeholder="Имя"
           />
 
-          <input
-            className={classNames('patient-dialog__input')}
-            id="lastName"
-            name="lastName"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.lastName}
+          <Input
+            classPrefix={classNames('patient-dialog__input')}
+            id="lastname"
+            name="lastname"
+            onChange={(value) => formik.setFieldValue(
+              'lastname',
+              value,
+            )}
+            value={formik.values.lastname}
             placeholder="Фамилия"
           />
 
-          <input
-            className={classNames('patient-dialog__input')}
+          <Input
+            classPrefix={classNames('patient-dialog__input')}
             id="surName"
             name="surName"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.surName}
+            onChange={(value) => formik.setFieldValue(
+              'surname',
+              value,
+            )}
+            value={formik.values.surname}
             placeholder="Отчество"
           />
 
-          <input
-            className={classNames('patient-dialog__input')}
-            id="birthdate"
-            name="birthdate"
-            type="text"
-            onChange={formik.handleChange}
-            value={formik.values.birthdate}
-            placeholder="Дата Рождения"
-          />
-
-          <input
-            className={classNames('patient-dialog__input')}
+          <Input
+            classPrefix={classNames('patient-dialog__input')}
             id="identification"
             name="identification"
-            type="text"
-            onChange={formik.handleChange}
+            onChange={(value) => formik.setFieldValue(
+              'identification',
+              value,
+            )}
             value={formik.values.identification}
             placeholder="Идентификационный номер"
+          />
+
+          <DatePicker
+            format="DD.MM.YYYY"
+            locale={locale}
+            oneTap
+            id="birthdate"
+            name="birthdate"
+            onChange={(value) => formik.setFieldValue(
+              'birthdate',
+              value,
+            )}
+            value={formik.values.birthdate}
+            placeholder="Дата Рождения"
           />
 
           <InputPicker
@@ -96,6 +126,7 @@ function AddPatientDialog({ isOpen, toggleModal }) {
               value,
             )}
             value={formik.values.sex}
+            placeholder="Пол"
           />
         </form>
       </Modal.Body>
