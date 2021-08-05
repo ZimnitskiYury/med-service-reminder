@@ -26,14 +26,14 @@
 
   font-size: 26px;
   font-family: "Comfortaa", cursive;
-  color: #275973;
+  color: #443239;
 
   border: none;
-  border-bottom: 2px solid #e4e5e5;
+  border-bottom: 2px solid #d7c27b;
   outline: none;
 }
 .header__search::placeholder {
-  color: #275973;
+  color: #443239;
 
   opacity: 0.4;
 }
@@ -47,7 +47,7 @@
 
   column-gap: 8px;
 
-  background-color: #e4e5e5;
+  background-color: #d7c27b;
   border-radius: 12px;
 }
 .header__mode-button {
@@ -56,7 +56,7 @@
   padding: 0 20px;
 
   font-family: "Comfortaa", cursive;
-  color: #275973;
+  color: #443239;
   text-transform: uppercase;
 
   background-color: transparent;
@@ -67,18 +67,18 @@
 .header__mode-button:hover {
   color: #ffffff;
 
-  background-color: #e3582d;
+  background-color: #c65220;
 
   transition: all 0.4s ease-in-out;
 }
 .header__mode-button_active {
-  color: white;
+  color: #000000;
 
-  background-color: #ffd73f;
+  background-color: #efbf1b;
 }
 
 .header__mode-button_active:hover {
   color: white;
 
-  background-color: #ffd73f;
+  background-color: #efbf1b;
 }

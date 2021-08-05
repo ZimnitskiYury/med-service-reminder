@@ -24,9 +24,9 @@
 .menu__link:hover {
   padding: 12px 0;
 
-  color: #275973;
+  color: #443239;
 
-  background-color: #e4e5e5;
+  background-color: #d7c27b;
   border-radius: 15px;
 
   transition: all 0.2s ease-in-out;
@@ -34,7 +34,7 @@
 .menu__link_active {
   padding: 12px 0;
 
-  color: #275973;
+  color: #443239;
 
   background-color: white;
   border-radius: 15px;
