@@ -231,6 +231,7 @@ function PatientLife() {
       <div className={classNames('patient-page__input-group')}>
         <label htmlFor="work" className={classNames('patient-page__label')}>Место работы</label>
         <InputPicker
+          creatable
           style={{ width: '100%' }}
           id="work"
           name="work"
