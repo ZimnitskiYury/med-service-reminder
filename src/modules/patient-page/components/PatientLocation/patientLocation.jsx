@@ -4,7 +4,7 @@ import {
   Input,
   InputPicker,
 } from 'rsuite';
-import { useFormik } from 'Formik';
+import { useFormik } from 'formik';
 
 
 const whereabouts = [
