@@ -1,0 +1,98 @@
+.login-page__root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  font-family: "Comfortaa", cursive;
+
+  background-color: #8ebfff;
+}
+
+.login-page__modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 340px;
+  overflow: hidden;
+
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.login-page__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  font-size: 24px;
+}
+
+.login-page__header-title {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+
+  font-size: 28px;
+  text-align: center;
+  color: #ffffff;
+
+  background-color: #6bb7a3;
+}
+.login-page__header-annotation {
+  padding: 25px 15px;
+
+  font-size: 20px;
+  color: #443239;
+}
+
+.login-page__input-container {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 80%;
+  padding: 10px 0;
+}
+
+.login-page__input-label {
+  display: block;
+  min-width: 30%;
+  padding: 8px 4px 8px 8px;
+
+  font-size: 16px;
+  text-align: right;
+  color: #ffffff;
+
+  background-color: #efbf1b;
+  border-radius: 6px 0 0 6px;
+}
+.login-page__input {
+  box-sizing: border-box;
+  max-width: 70%;
+  padding: 8px 4px;
+
+  border: 1px solid #efbf1b;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  outline: none;
+}
+.login-page__button {
+  box-sizing: border-box;
+  width: 50%;
+  margin-top: 20px;
+  padding: 10px;
+
+  font-size: 22px;
+  color: #ffffff;
+
+  background-color: #efbf1b;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+.login-page__button_disabled {
+  background-color: #d7c27b;
+}

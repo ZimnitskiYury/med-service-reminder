@@ -1,0 +1,65 @@
+.patient-dialog {
+  width: 540px;
+  padding: 15px;
+
+  font-size: 24px;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+
+  border-bottom: 2px solid #efbf1b;
+}
+.patient-dialog__title {
+  font-size: 22px;
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+}
+.patient-dialog__footer {
+  font-family: "Comfortaa", cursive;
+  text-align: center;
+}
+.patient-dialog__form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+
+  font-size: 24px;
+  font-family: "Comfortaa", cursive;
+
+  row-gap: 20px;
+}
+.patient-dialog__input {
+  height: 30px;
+  padding: 0 20px;
+
+  font-size: 20px;
+  font-family: "Comfortaa", cursive;
+  color: #443239;
+
+  border: none;
+  border-bottom: 2px solid #d7c27b;
+  outline: none;
+}
+.patient-dialog__input::placeholder {
+  color: #443239;
+
+  opacity: 0.4;
+}
+
+.patient-dialog__button {
+  box-sizing: border-box;
+  width: 260px;
+  height: 34px;
+  padding: 0 20px;
+
+  font-family: "Comfortaa", cursive;
+  color: white;
+  text-transform: uppercase;
+
+  background-color: #efbf1b;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+}
+.patient-dialog__button:hover {
+  background-color: #c65220;
+}

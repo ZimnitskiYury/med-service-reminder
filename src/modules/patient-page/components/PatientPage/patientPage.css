@@ -1,0 +1,53 @@
+.patient-page {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 40px;
+
+  font-family: "Comfortaa", cursive;
+}
+.patient-page__title {
+  text-align: center;
+  text-decoration: underline;
+}
+.patient-page__step {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+
+  font-size: 24px;
+  font-family: "Comfortaa", cursive;
+
+  row-gap: 20px;
+}
+.patient-page__input-group {
+  display: flex;
+  align-items: center;
+
+  column-gap: 10px;
+}
+.patient-page__label {
+  width: 50%;
+
+  font-size: 18px;
+  text-align: right;
+}
+.patient-page__input {
+  width: 100%;
+  height: 30px;
+  padding: 0 20px;
+
+  font-size: 20px;
+  font-family: "Comfortaa", cursive;
+  color: #443239;
+
+  border: none;
+  border-bottom: 2px solid #d7c27b;
+  outline: none;
+}
+.patient-page__input::placeholder {
+  font-size: 18px;
+  color: #443239;
+
+  opacity: 0.4;
+}
+

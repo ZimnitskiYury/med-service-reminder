@@ -1,0 +1,160 @@
+.patients {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 40px;
+
+  font-family: "Comfortaa", cursive;
+
+  row-gap: 80px;
+}
+.patients__table {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+
+  border: 1px solid #efbf1b;
+  border-bottom: none;
+  border-radius: 5px;
+}
+.patients__table-title {
+  margin-bottom: 5px;
+  padding: 5px 20px;
+
+  font-size: 24px;
+  color: #443239;
+}
+.patients__table-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 8px 0;
+
+  font-size: 14px;
+  text-align: center;
+  color: #000000;
+
+  background-color: #efbf1b;
+}
+.patients__table-credentials {
+  width: 25%;
+
+  border-right: 2px solid #000000;
+}
+.patients__table-age {
+  width: 9%;
+
+  border-right: 2px solid #000000;
+}
+.patients__table-birthdate {
+  width: 11%;
+
+  border-right: 2px solid #000000;
+}
+.patients__table-diagnosis {
+  width: 25%;
+
+  border-right: 2px solid #000000;
+}
+.patients__table-phone {
+  width: 18%;
+
+  border-right: 2px solid #000000;
+}
+.patients__table-visit {
+  width: 12%;
+}
+.patient {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 8px 0;
+
+  font-size: 16px;
+  text-align: center;
+
+  border-bottom: 1px solid #efbf1b;
+}
+.patient__credentials {
+  width: 25%;
+  padding: 5px;
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  border-right: 2px solid #efbf1b;
+}
+.patient__age {
+  width: 9%;
+  padding: 5px;
+
+  border-right: 2px solid #efbf1b;
+}
+.patient__birthdate {
+  width: 11%;
+  padding: 5px;
+
+  border-right: 2px solid #efbf1b;
+}
+.patient__diagnosis {
+  width: 25%;
+  padding: 5px;
+
+  border-right: 2px solid #efbf1b;
+}
+.patient__phone {
+  width: 18%;
+  padding: 5px;
+
+  border-right: 2px solid #efbf1b;
+}
+.patient__visit {
+  width: 12%;
+  padding: 5px;
+}
+.patients__menu {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 40px;
+  margin-left: auto;
+  padding: 0 3px;
+
+  background-color: #d7c27b;
+  border-radius: 12px;
+}
+.patients__menu-button {
+  box-sizing: border-box;
+  height: 34px;
+  padding: 0 20px;
+
+  font-family: "Comfortaa", cursive;
+  color: #443239;
+  text-transform: uppercase;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+}
+.patients__menu-button:hover {
+  color: #ffffff;
+
+  background-color: #c65220;
+
+  transition: all 0.3s ease-in-out;
+}
+.patient__link {
+  color: #443239;
+  text-decoration: none;
+
+  background-color: #ffffff;
+}
+.patient__link:hover {
+  color: #ffffff;
+
+  background-color: #c65220;
+
+  transition: all 0.3s ease-in-out;
+}
