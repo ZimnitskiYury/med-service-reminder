@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { useFormik } from 'Formik';
+import { useFormik } from 'formik';
 import {
   Modal, InputPicker, DatePicker, Input,
 } from 'rsuite';

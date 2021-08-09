@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useFormik } from 'Formik';
+import { useFormik } from 'formik';
 import { InputPicker, Input } from 'rsuite';
 
 
