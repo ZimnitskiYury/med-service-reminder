@@ -83,8 +83,12 @@ module.exports = (
       new HtmlWebpackPlugin({ template: './src/index.html' }),
       new StylelintPlugin(),
       new webpack.EnvironmentPlugin({
-        NODE_ENV: 'development',
-        RUN_ENV: 'development',
+        NODE_ENV: isDevelopment
+          ? 'development'
+          : 'production',
+        RUN_ENV: isDevelopment
+          ? 'development'
+          : 'production',
       }),
       new MiniCssExtractPlugin(),
     ],

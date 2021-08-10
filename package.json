@@ -13,7 +13,7 @@
     "lint": "eslint --ext .jsx --ext .js --fix .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production",
+    "build": "webpack serve --mode production",
     "prepare": "husky install"
   },
   "repository": {
@@ -25,7 +25,6 @@
   "bugs": {
     "url": "https://github.com/ZimnitskiYury/med-service-reminder/issues"
   },
-  "homepage": "https://github.com/ZimnitskiYury/med-service-reminder#readme",
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
