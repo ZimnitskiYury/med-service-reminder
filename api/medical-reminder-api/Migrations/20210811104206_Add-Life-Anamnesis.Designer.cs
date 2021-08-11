@@ -3,15 +3,17 @@ using System;
 using MedicalReminder.Db.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MedicalReminder.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210811104206_Add-Life-Anamnesis")]
+    partial class AddLifeAnamnesis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace MedicalReminder.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("MedicalReminder.Db.Entities.LifeAnamnesisEntity", b =>
+            modelBuilder.Entity("MedicalReminder.Db.Entities.LifeAnamnesis", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,46 +78,7 @@ namespace MedicalReminder.Migrations
                     b.ToTable("LifeAnamnesis");
                 });
 
-            modelBuilder.Entity("MedicalReminder.Db.Entities.LocationEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Administrative")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Locality")
-                        .HasColumnType("text");
-
-                    b.Property<int>("PatientId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Region")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Registration")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Whereabouts")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PatientId")
-                        .IsUnique();
-
-                    b.ToTable("Locations");
-                });
-
-            modelBuilder.Entity("MedicalReminder.Db.Entities.PatientEntity", b =>
+            modelBuilder.Entity("MedicalReminder.Db.Entities.Patient", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -339,22 +302,11 @@ namespace MedicalReminder.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MedicalReminder.Db.Entities.LifeAnamnesisEntity", b =>
+            modelBuilder.Entity("MedicalReminder.Db.Entities.LifeAnamnesis", b =>
                 {
-                    b.HasOne("MedicalReminder.Db.Entities.PatientEntity", "Patient")
+                    b.HasOne("MedicalReminder.Db.Entities.Patient", "Patient")
                         .WithOne("LifeAnamnesis")
-                        .HasForeignKey("MedicalReminder.Db.Entities.LifeAnamnesisEntity", "PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Patient");
-                });
-
-            modelBuilder.Entity("MedicalReminder.Db.Entities.LocationEntity", b =>
-                {
-                    b.HasOne("MedicalReminder.Db.Entities.PatientEntity", "Patient")
-                        .WithOne("Location")
-                        .HasForeignKey("MedicalReminder.Db.Entities.LocationEntity", "PatientId")
+                        .HasForeignKey("MedicalReminder.Db.Entities.LifeAnamnesis", "PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -412,11 +364,9 @@ namespace MedicalReminder.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MedicalReminder.Db.Entities.PatientEntity", b =>
+            modelBuilder.Entity("MedicalReminder.Db.Entities.Patient", b =>
                 {
                     b.Navigation("LifeAnamnesis");
-
-                    b.Navigation("Location");
                 });
 #pragma warning restore 612, 618
         }
