@@ -3,6 +3,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -60,5 +61,20 @@ namespace MedicalReminder.Db.Entities
         /// Gets or sets location.
         /// </summary>
         public LocationEntity Location { get; set; }
+
+        /// <summary>
+        /// Gets or sets observation.
+        /// </summary>
+        public ObservationEntity Observation { get; set; }
+
+        /// <summary>
+        /// Gets or sets visits.
+        /// </summary>
+        public List<VisitEntity> Visits { get; set; }
+
+        /// <summary>
+        /// Gets or sets diagnoses.
+        /// </summary>
+        public List<DiagnosisEntity> Diagnoses { get; set; }
     }
 }

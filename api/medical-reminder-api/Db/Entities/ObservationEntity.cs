@@ -11,6 +11,7 @@ namespace MedicalReminder.Db.Entities
     [Table("Observations")]
     public class ObservationEntity
     {
+        [Key]
         public int Id { get; set; }
 
         [DataType(DataType.Date)]
@@ -25,5 +26,9 @@ namespace MedicalReminder.Db.Entities
         public DateTime Examination { get; set; }
 
         public string Reason { get; set; }
+
+        public int PatientId { get; set; }
+
+        public PatientEntity Patient { get; set; }
     }
 }
