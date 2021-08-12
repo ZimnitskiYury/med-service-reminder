@@ -25,7 +25,7 @@ module.exports = (
         '/dist',
       ),
       filename: 'index.bundle.js',
-      publicPath: '/',
+      publicPath: '/med-service-reminder/',
     },
     devServer: {
       port: 3000,
