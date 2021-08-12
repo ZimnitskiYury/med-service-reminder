@@ -3,44 +3,23 @@ using System;
 using MedicalReminder.Db.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MedicalReminder.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210811110803_Add-Location")]
+    partial class AddLocation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-            modelBuilder.Entity("MedicalReminder.Db.Entities.DiagnosisEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Diagnosis")
-                        .HasColumnType("text");
-
-                    b.Property<int>("PatientId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PatientId");
-
-                    b.ToTable("Diagnoses");
-                });
 
             modelBuilder.Entity("MedicalReminder.Db.Entities.LifeAnamnesisEntity", b =>
                 {
@@ -138,39 +117,6 @@ namespace MedicalReminder.Migrations
                     b.ToTable("Locations");
                 });
 
-            modelBuilder.Entity("MedicalReminder.Db.Entities.ObservationEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<DateTime>("Deregistration")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("Examination")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<int>("Group")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("PatientId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Reason")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Registration")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PatientId")
-                        .IsUnique();
-
-                    b.ToTable("Observations");
-                });
-
             modelBuilder.Entity("MedicalReminder.Db.Entities.PatientEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -263,35 +209,6 @@ namespace MedicalReminder.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("MedicalReminder.Db.Entities.VisitEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("ControlPeriod")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("NextVisitDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<int>("PatienId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("PatientId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("VisitDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PatientId");
-
-                    b.ToTable("Visits");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -424,17 +341,6 @@ namespace MedicalReminder.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MedicalReminder.Db.Entities.DiagnosisEntity", b =>
-                {
-                    b.HasOne("MedicalReminder.Db.Entities.PatientEntity", "Patient")
-                        .WithMany("Diagnoses")
-                        .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Patient");
-                });
-
             modelBuilder.Entity("MedicalReminder.Db.Entities.LifeAnamnesisEntity", b =>
                 {
                     b.HasOne("MedicalReminder.Db.Entities.PatientEntity", "Patient")
@@ -453,26 +359,6 @@ namespace MedicalReminder.Migrations
                         .HasForeignKey("MedicalReminder.Db.Entities.LocationEntity", "PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Patient");
-                });
-
-            modelBuilder.Entity("MedicalReminder.Db.Entities.ObservationEntity", b =>
-                {
-                    b.HasOne("MedicalReminder.Db.Entities.PatientEntity", "Patient")
-                        .WithOne("Observation")
-                        .HasForeignKey("MedicalReminder.Db.Entities.ObservationEntity", "PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Patient");
-                });
-
-            modelBuilder.Entity("MedicalReminder.Db.Entities.VisitEntity", b =>
-                {
-                    b.HasOne("MedicalReminder.Db.Entities.PatientEntity", "Patient")
-                        .WithMany("Visits")
-                        .HasForeignKey("PatientId");
 
                     b.Navigation("Patient");
                 });
@@ -530,15 +416,9 @@ namespace MedicalReminder.Migrations
 
             modelBuilder.Entity("MedicalReminder.Db.Entities.PatientEntity", b =>
                 {
-                    b.Navigation("Diagnoses");
-
                     b.Navigation("LifeAnamnesis");
 
                     b.Navigation("Location");
-
-                    b.Navigation("Observation");
-
-                    b.Navigation("Visits");
                 });
 #pragma warning restore 612, 618
         }

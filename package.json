@@ -13,7 +13,7 @@
     "lint": "eslint --ext .jsx --ext .js --fix .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
-    "build": "webpack serve --mode production",
+    "build": "webpack --mode production",
     "prepare": "husky install"
   },
   "repository": {

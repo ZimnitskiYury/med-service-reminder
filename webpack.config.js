@@ -32,7 +32,9 @@ module.exports = (
       watchContentBase: true,
       historyApiFallback: true,
     },
-    devtool: 'eval-source-map',
+    devtool: isDevelopment
+      ? 'eval-source-map'
+      : false,
     module: {
       rules: [
         {
@@ -81,7 +83,8 @@ module.exports = (
     },
     plugins: [
       new HtmlWebpackPlugin({ template: './src/index.html' }),
-      new StylelintPlugin(),
+      // @ts-ignore
+      new StylelintPlugin({ fix: true }),
       new webpack.EnvironmentPlugin({
         NODE_ENV: isDevelopment
           ? 'development'
@@ -90,7 +93,13 @@ module.exports = (
           ? 'development'
           : 'production',
       }),
-      new MiniCssExtractPlugin(),
+      ...(isDevelopment
+        ? []
+        : [new MiniCssExtractPlugin({
+          filename: '[name].css',
+          chunkFilename: '[id].css',
+          ignoreOrder: false,
+        })]),
     ],
   };
 };

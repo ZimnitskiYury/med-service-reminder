@@ -20,5 +20,10 @@ namespace MedicalReminder.Db.Contexts
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
         {
         }
+
+        /// <summary>
+        /// Gets or sets table of patients.
+        /// </summary>
+        public DbSet<PatientEntity> Patients { get; set; }
     }
 }
