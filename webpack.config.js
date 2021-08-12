@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 module.exports = (
@@ -24,8 +25,10 @@ module.exports = (
         __dirname,
         '/dist',
       ),
-      filename: 'index.bundle.js',
-      publicPath: '/med-service-reminder/',
+      filename: '[name].bundle.js',
+      publicPath: isDevelopment
+        ? './'
+        : '/med-service-reminder/',
     },
     devServer: {
       port: 3000,
@@ -68,7 +71,10 @@ module.exports = (
             isDevelopment
               ? 'style-loader'
               : MiniCssExtractPlugin.loader,
-            'css-loader',
+            {
+              loader: 'css-loader',
+              options: { importLoaders: 1 },
+            },
             {
               loader: 'less-loader',
               options: {
@@ -81,10 +87,28 @@ module.exports = (
         },
       ],
     },
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          react: {
+            test: /[/\\]node_modules[/\\]((react).*)[/\\]/,
+            name: 'react',
+            chunks: 'all',
+          },
+          commons: {
+            test: /[/\\]node_modules[/\\]((?!react).*)[/\\]/,
+            name: 'common',
+            chunks: 'all',
+          },
+        },
+      },
+    },
     plugins: [
       new HtmlWebpackPlugin({ template: './src/index.html' }),
       // @ts-ignore
       new StylelintPlugin({ fix: true }),
+      new CleanWebpackPlugin(),
       new webpack.EnvironmentPlugin({
         NODE_ENV: isDevelopment
           ? 'development'
@@ -96,9 +120,8 @@ module.exports = (
       ...(isDevelopment
         ? []
         : [new MiniCssExtractPlugin({
-          filename: '[name].css',
+          filename: 'css/[name].[contenthash].css',
           chunkFilename: '[id].css',
-          ignoreOrder: false,
         })]),
     ],
   };
