@@ -5,7 +5,7 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using MedicalReminder.Db.Entities;
+using medical_reminder_data_access.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -29,7 +29,7 @@ namespace MedicalReminder.Services.JWT
         /// </summary>
         /// <param name="user">UserIdentity.</param>
         /// <returns>Jwt token.</returns>
-        public string GetToken(UserEntity user)
+        public string GetToken(User user)
         {
             var jwt = new JwtSecurityToken(
                 issuer: _configuration["JWT:JwtIssuer"],

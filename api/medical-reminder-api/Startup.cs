@@ -4,8 +4,9 @@
 
 using System;
 using System.Text;
-using MedicalReminder.Db.Contexts;
-using MedicalReminder.Db.Entities;
+using medical_reminder_data_access.Contexts;
+using medical_reminder_data_access.Entities;
+using medical_reminder_data_access.UoW;
 using MedicalReminder.Services.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -43,11 +44,12 @@ namespace medical_reminder_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<UserDbContext>(opts =>
+            services.AddDbContext<DatabaseContext>(opts =>
                     opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<UserEntity, IdentityRole>()
-                    .AddEntityFrameworkStores<UserDbContext>();
+            services.AddIdentity<User, IdentityRole>()
+                    .AddEntityFrameworkStores<DatabaseContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddAuthentication(options =>
             {
