@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
-      "target":"es2020",
+      "target":"esnext",
       "baseUrl": "src"
     },
-    "include": ["src"],
-    "exclude": ["node_modules", "dist"],
+    "include": ["src/**/*"]
 }
