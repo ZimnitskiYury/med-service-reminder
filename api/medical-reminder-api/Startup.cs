@@ -7,7 +7,7 @@ using System.Text;
 using medical_reminder_data_access.Contexts;
 using medical_reminder_data_access.Entities;
 using medical_reminder_data_access.UoW;
-using MedicalReminder.Services.JWT;
+using medical_reminder_services.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,7 +35,7 @@ namespace medical_reminder_api
         /// <summary>
         /// Gets config from appsettings.json.
         /// </summary>
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         /// <summary>
         /// This method gets called by the runtime.

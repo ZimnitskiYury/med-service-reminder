@@ -4,12 +4,12 @@
 
 using System.Threading.Tasks;
 using medical_reminder_data_access.Entities;
-using MedicalReminder.Models;
-using MedicalReminder.Services.JWT;
+using medical_reminder_services.JWT;
+using medical_reminder_api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MedicalReminder.Controllers
+namespace medical_reminder_api.Controllers
 {
     /// <summary>
     /// Controller for authentication and authorization.
@@ -36,7 +36,7 @@ namespace MedicalReminder.Controllers
         }
 
         [HttpPost]
-        [Route("Login")]
+        [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel request)
         {
             var result = await _signInManager.PasswordSignInAsync(request.Login, request.Password, false, false);
@@ -51,7 +51,7 @@ namespace MedicalReminder.Controllers
         }
 
         [HttpPost]
-        [Route("Register")]
+        [Route("register")]
         public async Task<IActionResult> Register([FromBody] LoginModel request)
         {
             var result = await _userManager.CreateAsync(new User { UserName = request.Login }, request.Password);
