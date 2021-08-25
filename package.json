@@ -1,6 +1,6 @@
 {
   "name": "med-service-reminder",
-  "homepage": "https://zimnitskiyury.github.io/med-service-reminder/",
+  "homepage": "/",
   "version": "0.0.1",
   "description": "",
   "main": "./src/app/app.jsx",

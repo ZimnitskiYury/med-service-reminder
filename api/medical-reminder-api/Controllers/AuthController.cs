@@ -3,9 +3,9 @@
 // </copyright>
 
 using System.Threading.Tasks;
+using medical_reminder_api.Models;
 using medical_reminder_data_access.Entities;
 using medical_reminder_services.JWT;
-using medical_reminder_api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +14,7 @@ namespace medical_reminder_api.Controllers
     /// <summary>
     /// Controller for authentication and authorization.
     /// </summary>
-    [Route("auth/")]
+    [Route("api/auth/")]
     [ApiController]
     public class AuthController : Controller
     {

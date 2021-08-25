@@ -8,6 +8,7 @@ using medical_reminder_data_access.Contexts;
 using medical_reminder_data_access.Entities;
 using medical_reminder_data_access.UoW;
 using medical_reminder_services.JWT;
+using medical_reminder_services.Patients;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -45,7 +46,7 @@ namespace medical_reminder_api
         {
             services.AddControllers();
             services.AddDbContext<DatabaseContext>(opts =>
-                    opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+                    opts.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("medical-reminder-data-access")));
 
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<DatabaseContext>();
@@ -94,6 +95,8 @@ namespace medical_reminder_api
                 });
             });
             services.AddScoped<JwtTokenService>();
+            services.AddScoped<PatientManager>();
+            services.AddAutoMapper(typeof(Startup), typeof(PatientManager));
         }
 
         /// <summary>

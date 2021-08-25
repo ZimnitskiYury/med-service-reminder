@@ -25,10 +25,10 @@ namespace medical_reminder_data_access.Repositories
             return await _dbSet.FindAsync(id);
         }
 
-        public virtual async Task<bool> Add(T entity)
+        public virtual async Task<T> Add(T entity)
         {
             await _dbSet.AddAsync(entity);
-            return true;
+            return entity;
         }
 
         public virtual bool Delete(int id)
