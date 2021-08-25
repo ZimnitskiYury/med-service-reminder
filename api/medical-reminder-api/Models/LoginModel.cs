@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace MedicalReminder.Models
+namespace medical_reminder_api.Models
 {
     /// <summary>
     /// Model for login.

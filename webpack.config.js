@@ -27,7 +27,7 @@ module.exports = (
       ),
       filename: '[name].bundle.js',
       publicPath: isDevelopment
-        ? './'
+        ? '/'
         : '/med-service-reminder/',
     },
     devServer: {

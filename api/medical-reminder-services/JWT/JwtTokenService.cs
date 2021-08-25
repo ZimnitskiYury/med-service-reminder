@@ -9,7 +9,7 @@ using medical_reminder_data_access.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace MedicalReminder.Services.JWT
+namespace medical_reminder_services.JWT
 {
     /// <summary>
     /// Service for works with jwt token.
